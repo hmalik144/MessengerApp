@@ -18,7 +18,7 @@ const val SENT_CONST = 101
 const val RECEIVED_CONST = 102
 const val TIMESTAMP_CONST = 103
 class MessageRecyclerAdapter(
-    val messageLiveData: LiveData<List<MessageEntity>>
+    messageLiveData: LiveData<List<MessageEntity>>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var messages: List<MessageEntity>? = null

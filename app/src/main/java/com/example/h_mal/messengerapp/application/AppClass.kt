@@ -19,6 +19,7 @@ import org.kodein.di.generic.singleton
 class AppClass: Application(), KodeinAware{
 
     // Kodein aware to initialise the classes used for DI
+    // Simple DI module creation where @instance() automatically becomes required class (eg. context or singleton)
     @ExperimentalCoroutinesApi
     override val kodein = Kodein.lazy {
         import(androidXModule(this@AppClass))

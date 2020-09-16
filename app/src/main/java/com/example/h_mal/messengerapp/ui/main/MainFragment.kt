@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.h_mal.messengerapp.R
@@ -64,11 +65,11 @@ class MainFragment : Fragment(), KodeinAware {
                     }
                 })
             }
-
         }
 
         message_box_et.apply {
             setOnEditorActionListener { _, actionId, _ ->
+                // Press enter to send message
                 when (actionId) {
                     EditorInfo.IME_ACTION_DONE ->{
                         viewModel.submitMessage(text.toString())
@@ -79,6 +80,7 @@ class MainFragment : Fragment(), KodeinAware {
             }
 
             submit.setOnClickListener {
+                // send message on submit
                 viewModel.submitMessage(text.toString())
                 text.clear()
             }
