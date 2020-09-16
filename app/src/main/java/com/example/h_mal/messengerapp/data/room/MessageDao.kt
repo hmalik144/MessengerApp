@@ -23,4 +23,7 @@ interface MessageDao {
 
     @Delete
     fun deleteSingleEntry(message: MessageEntity)
+
+    @Query("SELECT * FROM MessageEntity ORDER BY timestamp DESC LIMIT 1")
+    suspend fun getLastEntry(): MessageEntity?
 }

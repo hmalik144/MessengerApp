@@ -1,5 +1,6 @@
 package com.example.h_mal.messengerapp.data.network
 
+import com.example.h_mal.messengerapp.data.network.model.MessageItem
 import com.tinder.scarlet.Scarlet
 import com.tinder.scarlet.Stream
 import com.tinder.scarlet.WebSocket
@@ -14,14 +15,16 @@ import okhttp3.OkHttpClient
 
 interface MessengerApi {
 
+    // Receive websocket messages in the form of string
     @Receive
-    fun observerMessage(): ReceiveChannel<String>
+    fun observerMessage(): ReceiveChannel<MessageItem>
 
     @Receive
-    fun observerFailure(): ReceiveChannel<WebSocket.Event.OnConnectionFailed>
+    fun observerEvent(): ReceiveChannel<WebSocket.Event>
 
+    // Send message to websocket and return pass/fail boolean result
     @Send
-    fun send(message: Any): Boolean
+    fun send(message: MessageItem): Boolean
 
 
     // invoke method creating an invocation of the api call
@@ -32,7 +35,7 @@ interface MessengerApi {
 
             val webSocketUrl = "ws://echo.websocket.org/"
 
-            // creation of retrofit class
+            // creation of Api class for websocket
             return Scarlet.Builder()
                 .webSocketFactory(okkHttpClient.newWebSocketFactory(webSocketUrl))
                 .addMessageAdapterFactory(GsonMessageAdapter.Factory())

@@ -39,7 +39,7 @@ class AppClass: Application(), KodeinAware{
             )
         }
         bind() from singleton { AppRoomDatabase(instance()) }
-        bind() from singleton { RepositoryImpl(instance()) }
+        bind() from singleton { RepositoryImpl(instance(), instance()) }
         bind() from provider { MainViewModelFactory(instance()) }
     }
 }
