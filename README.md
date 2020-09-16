@@ -1,5 +1,6 @@
 # MessengerApp
 Basic messaging app to display messages over local WebSocket.
+![](https://github.com/hmalik144/MessengerApp/blob/master/readme/ezgif.com-video-to-gif%20(1).gif?raw=true)
 
 ## Objective
 The task was to create an android messaging application over a WebSocket. The application should be a one screen application hosting a message entry box, send button and message list hosting the conversation. The Conversation should be ordered with oldest messages at the top and newest at the bottom. 
