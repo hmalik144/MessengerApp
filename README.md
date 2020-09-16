@@ -1,5 +1,5 @@
 # MessengerApp
-Basic messaging app to display messages over local WebSocket.
+Basic messaging app to display messages over local WebSocket. With automated replies to mimic a second user.
 
 <img src="https://github.com/hmalik144/MessengerApp/blob/master/readme/ezgif.com-video-to-gif%20(1).gif?raw=true" width="400" height="800" />
 
