@@ -14,9 +14,6 @@ The task was to create an android messaging application over a WebSocket. The ap
  
 ## Approach
 
-### MVVM architecture & Solid coding
-This application followed the MVVM architecture with the use of live data and observers. SOLID coding principle were followed to ensure clean code.
-
 ### WebSocket with coroutines
 This uses the android kotlin native components, Coroutines, for concurrency. I used the tinder Scarlet WebSocket library, Retrofit inspired WebSocket client, to simply handle the WebSocket operations.
 *NB. Nearly all the resources online for tinder scarlet point towards using RxJava - this is quite unique whilst still being "out of the box"*
@@ -36,27 +33,19 @@ When the WebSocket is connected to the last message stored is read for its time 
 ### Kodein dependency injection
 Simple kotlin dependency injection to seamlessly create module is application class and retrieve them via "KodeinAware" implementation.
 
-### *Bonus* Network interception
-Although this project is local but if the user is offline then messages will not be sent. With the tinder scarlet library, I used a network interceptor.
+### Network interception 
+If the user is offline then messages will not be sent. With the tinder scarlet library, I used a network interceptor.
 
 ## Limitation
 
 ### Sent/Not Sent messages?
-It’s hard to tell if the message has been successfully sent over the WebSocket.
+It’s hard to tell if the message has been successfully sent over the WebSocket. (Work in progress)
 
-## If I had more time
-
-### Animation presence
-Not much consideration was given to animations in this project as the requested animation was not easy to come by. If I had more time, I would have implemented animations for chat message entry and population of messages recycler view.
-
-### Sent/Not Sent messages?
-Messages to have a Boolean value of "isSent" which changes when the message is received via the WebSocket.
+### Animation presence minimal
+Not much consideration was given to animations in this project (Work in progress). Recycler views have an animation class that can be 
 
 ### Online Status
 Would have a live data observer working with WebSocket connection to determine connection.
-
-### Unit tests & UI tests
-As mentioned above the scarlet/coroutines method was quite original hence it would have taken some time to create mocks/test cases.
 
 ## Architectural Pattern
 
